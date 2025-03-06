@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Spreadsheet Clone</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #2b2b2b; /* Just for a dark theme look similar to your reference image */
+      color: #f0f0f0;
+    }
+
+    /* Top toolbar container */
+    #toolbar {
+      background: #3b3b3b;
+      padding: 8px;
+      border-bottom: 1px solid #444;
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    /* Each category box */
+    .category {
+      background: #4a4a4a;
+      padding: 8px;
+      border: 1px solid #666;
+      border-radius: 4px;
+    }
+    .category h3 {
+      margin: 0 0 5px 0;
+      font-size: 14px;
+    }
+    .category button {
+      margin: 4px 4px 0 0;
+      padding: 4px 8px;
+      background: #666;
+      border: 1px solid #888;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .category button:hover {
+      background: #777;
+    }
+
+    /* Formula bar */
+    #formulaBar {
+      background: #3b3b3b;
+      padding: 5px;
+      border-bottom: 1px solid #444;
+    }
+    #formula-input {
+      width: 100%;
+      padding: 6px;
+      border: 1px solid #666;
+      outline: none;
+      background: #5b5b5b;
+      color: #fff;
+    }
+
+    /* Spreadsheet container */
+    #spreadsheetContainer {
+      position: relative;
+      width: 1200px; /* match canvas width */
+      height: 600px; /* match canvas height */
+      margin: 10px auto; 
+      background: #fff; /* White background behind the canvas */
+    }
+
+    /* Canvas for the spreadsheet */
+    #spreadsheet {
+      border: 1px solid #ccc;
+      display: block;
+    }
+
+    /* Overlays for selected cell, range, and text input */
+    #selectedCellBorder,
+    #selectedRange {
+      position: absolute;
+      pointer-events: none;
+    }
+
+    #textInput {
+      position: absolute;
+      display: none;
+      background: #fff;
+      outline: none;
+      border: 1px solid #000;
+      z-index: 1000;
+      padding: 3px;
+      font-size: 14px;
+      color: #000;
+    }
+
+    /* Save, Load, Chart buttons (optional, can be in a separate category) */
+    #topButtons {
+      margin-bottom: 8px;
+    }
+    #topButtons button {
+      margin-right: 6px;
+      padding: 4px 8px;
+      background: #666;
+      border: 1px solid #888;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    #topButtons button:hover {
+      background: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top toolbar with function categories -->
+  <div id="toolbar">
+    <!-- Category 1: Mathematical Functions -->
+    <div class="category">
+      <h3>Mathematical Functions</h3>
+      <button onclick="insertFunction('SUM')">SUM</button>
+      <button onclick="insertFunction('AVERAGE')">AVERAGE</button>
+      <button onclick="insertFunction('MIN')">MIN</button>
+      <button onclick="insertFunction('MAX')">MAX</button>
+      <button onclick="insertFunction('COUNT')">COUNT</button>
+    </div>
+
+    <!-- Category 2: Data Quality Functions -->
+    <div class="category">
+      <h3>Data Quality Functions</h3>
+      <button onclick="insertFunction('TRIM')">TRIM</button>
+      <button onclick="insertFunction('UPPER')">UPPER</button>
+      <button onclick="insertFunction('LOWER')">LOWER</button>
+      <button onclick="insertFunction('REMOVE_DUPLICATES')">REMOVE_DUPLICATES</button>
+      <button onclick="insertFunction('FIND_AND_REPLACE')">FIND_AND_REPLACE</button>
+    </div>
+
+    <!-- Category 3: Data Entry & Validation -->
+    <div class="category">
+      <h3>Data Entry & Validation</h3>
+      <button onclick="validateNumericCells()">Validate Numeric</button>
+      <!-- You can add more validation buttons here -->
+    </div>
+  </div>
+
+  <!-- Formula bar below the toolbar -->
+  <div id="formulaBar">
+    <input type="text" id="formula-input" placeholder="Type formula here (e.g. =A1+B1)" />
+  </div>
+
+  <!-- Container for the spreadsheet canvas and overlays -->
+  <div id="spreadsheetContainer">
+    <canvas id="spreadsheet" width="1200" height="600"></canvas>
+    <div id="selectedCellBorder"></div>
+    <div id="selectedRange"></div>
+    <div id="textInput" contenteditable="true"></div>
+  </div>
+
+  <!-- Optional top-level buttons for Save, Load, Chart -->
+  <div id="topButtons" style="text-align:center; margin-top:10px;">
+    <button onclick="saveSpreadsheet()">Save</button>
+    <button onclick="loadSpreadsheet()">Load</button>
+    <button onclick="generateChart()">Generate Chart</button>
+  </div>
+
+  <!-- math.js library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/12.2.0/math.js"></script>
+
+  <!-- Your original (augmented) app.js -->
+  <script src="app.js"></script>
+</body>
+</html>
