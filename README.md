@@ -49,10 +49,11 @@ Steps:
   Math.js — for parsing and evaluating formulas
 
 🧑‍💻 Usage Instructions
+
 •	Editing a Cell:
-  o	Click on any cell to select it.
-  o	Start typing to edit the content.
-  o	Press Enter to save.
+	o Click on any cell to select it.
+    o Start typing to edit the content.
+    o Press Enter to save.
   
 •	Using the Formula Bar:
   o	Type a formula (e.g., =A1+B1) into the formula input box and press Enter.
