@@ -24,7 +24,7 @@ It mimics basic spreadsheet functionalities like editing cells, applying formula
 This project is pure frontend — no server setup is required. You just need a web browser.
 Steps:
 1. Clone or Download the Repository:
-    git clone https://github.com/Lakshit15/spreadsheet-clone.git
+    git clone https://github.com/Lakshit15/Google-sheet-clone.git
     or simply download the ZIP file and extract it.
 
 2. Open the Project:
