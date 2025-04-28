@@ -53,16 +53,22 @@ Steps:
   o	Click on any cell to select it.
   o	Start typing to edit the content.
   o	Press Enter to save.
+  
 •	Using the Formula Bar:
   o	Type a formula (e.g., =A1+B1) into the formula input box and press Enter.
+  
 •	Applying Functions Quickly:
   o	Use the toolbar buttons to insert predefined functions like SUM, AVERAGE, etc.
+  
 •	Data Validation:
   o	Use the "Validate Numeric" button to ensure selected cells have numeric values only.
+  
 •	Saving Data:
   o	Click the "Save" button to store your spreadsheet data (to localStorage or download as file depending on app.js implementation).
+  
 •	Loading Data:
   o	Click "Load" to restore previously saved data.
+  
 •	Generating Chart:
   o	Click "Generate Chart" (functionality under development or placeholder).
 
